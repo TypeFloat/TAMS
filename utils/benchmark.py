@@ -102,7 +102,7 @@ class Benchmark:
             action = controller.get_action(env.get_state())
             _, _, d, _ = env.step(action)
             step += 1
-        Logger.info(f"Finish crossing，use {step} steps，running time is{time.time() - st_time}s")
+        Logger.info(f"Finish crossing，use {step} steps，running time is {time.time() - st_time}s")
 
     def get_terrain_list(self):
         return self._terrain_list

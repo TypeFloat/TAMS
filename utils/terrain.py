@@ -4,8 +4,9 @@ from typing import List, Union
 
 import mujoco
 import numpy as np
-from sutils.exp.config import Config
-from sutils.simulation import mjcf
+
+from utils import mjcf
+from utils.config import Config
 
 config = Config()
 

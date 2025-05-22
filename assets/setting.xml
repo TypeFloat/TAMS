@@ -1,0 +1,63 @@
+<mujoco model="setting">
+    <compiler coordinate="local" inertiafromgeom="true"/>
+    <option timestep="0.002" solver="CG" iterations="5" integrator="RK4"/>
+    <visual>
+        <!-- <global offwidth="1280" offheight="960"/> -->
+        <global offwidth="4090" offheight="2160"/>
+    </visual>
+    <default>
+        <motor ctrlrange="-0.15 0.15" ctrllimited="true"/>
+        <joint armature="1" damping="1" stiffness="1" limited="true" solimplimit="0 0.99 0.01"/>
+        <default class="body_link">
+            <geom type="capsule" size="0.045 0.075" condim="3" material="blue"/>
+        </default>
+        <default class="limb_small">
+            <geom type="capsule" size="0.025 0.05" condim="3" material="blue"/>
+        </default>
+        <default class="free_joint">
+            <joint type="free"/>
+        </default>
+        <default class="hfield_sensor">
+            <site type="sphere" size="0.01 0.01 0.01"/>
+        </default>
+        <default class="cylinder_joint_small">
+            <site type="cylinder" size="0.026 0.03" material="yellow"/>
+            <joint type="hinge" range="-45 45"/>
+        </default>
+        <default class="cylinder_joint_big">
+            <site type="cylinder" size="0.046 0.05" material="green"/>
+            <joint type="hinge" range="-60 60"/>
+        </default>
+        <default class="limb_wheel">
+            <geom type="cylinder" size="0.075 0.01" condim="3" material="blue"/>
+        </default>
+        <default class="touch_site">
+            <site type="sphere" size="0.01" rgba="1 0 0 1"/>
+        </default>
+        <default class="imu_set">
+            <site type="box" size="0.05" rgba="1 0 0 1"/>
+        </default>
+    </default>
+    <default>
+        <geom material="default"/>
+    </default>
+    <asset>
+        <material name="default" shininess="0.1" rgba=".6 .6 .6 0.5"/>
+        <material name="grid" rgba=".7 .7 .7 1"/>
+        <texture name="skybox" type="skybox" builtin="flat" rgb1="1 1 1" rgb2="1 1 1" width="800" height="800"/>
+        <material name="yellow" rgba="0.745 0.502 0.224 1.0"/>
+        <material name="blue" rgba="0.157 0.314 0.424 1.0"/>
+        <material name="green" rgba="0.173 0.541 0.173 1.0"/>
+        <texture name="texgreen" type="2d" builtin="flat" rgb1="0.173 0.541 0.173" width="512" height="512"/>
+        <material name="texgreen" texture="texgreen"/>
+    </asset>
+    <worldbody>
+        <camera name="fixed" pos="10.091 5.412 3.762" xyaxes="-0.028 1.000 0.000 -0.310 -0.009 0.951"/>
+        <!-- <camera name="fixed" pos="3.042 1.033 0.741" xyaxes="-0.011 1.000 -0.000 -0.188 -0.002 0.982"/> -->
+        <light directional="true" diffuse=".6 .6 .6" specular="0.2 0.2 0.2" pos="0 0 4" dir="0 0 -1" castshadow="false"/>
+        <light directional="true" diffuse=".6 .6 .6" specular="0.2 0.2 0.2" pos="-5 0 1.0" dir="1 0 0" castshadow="false"/>
+        <light directional="true" diffuse=".6 .6 .6" specular="0.2 0.2 0.2" pos="5 0 1.0" dir="-1 0 0" castshadow="false"/>
+        <!-- <light directional="true" diffuse=".6 .6 .6" specular="0.2 0.2 0.2" pos="0 -10 1.0" dir="0 1 0" castshadow="false"/> -->
+        <light directional="true" diffuse=".6 .6 .6" specular="0.2 0.2 0.2" pos="0 10 1.0" dir="0 -1 0" castshadow="false"/>
+    </worldbody>
+</mujoco>

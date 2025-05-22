@@ -1,8 +1,9 @@
 import torch
 import torch.nn as nn
-from sutils.exp.config import Config
-from sutils.network.transformer import PositionalEmbedding
-from sutils.network.utils import make_mlp
+from torch.optim.adam import Adam
+
+from utils.config import Config
+from utils.network import PositionalEmbedding, make_mlp
 
 
 class TAN(nn.Module):
@@ -77,7 +78,7 @@ def train_of_tan(
     mu = mu.to(torch.float32).to(cfg.DEVICE)
     terrain = terrain.to(torch.float32).to(cfg.DEVICE)
     labels = labels.to(torch.float32).to(cfg.DEVICE)
-    optimizer = torch.optim.Adam(tan.parameters(), lr=cfg.TAMS.TAN.LR)
+    optimizer = Adam(tan.parameters(), lr=cfg.TAMS.TAN.LR)
     loss_f = nn.MSELoss()
     epochs = cfg.TAMS.TAN.EPOCHS
     for i in range(epochs):

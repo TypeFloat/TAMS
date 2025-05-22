@@ -2,7 +2,8 @@ from copy import deepcopy
 from typing import List, Optional, Union
 
 import numpy as np
-from sutils.simulation import mjcf
+
+from utils import mjcf
 
 
 class CodeNode:

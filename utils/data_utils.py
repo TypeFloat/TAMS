@@ -8,7 +8,7 @@ import numpy as np
 import torch
 from apted.helpers import Tree
 from sklearn.model_selection import train_test_split
-from sutils.exp.config import Config
+from utils.config import Config
 from torch.utils.data import DataLoader
 
 from src.robot import CodeNode

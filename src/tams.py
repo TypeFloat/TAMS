@@ -4,13 +4,13 @@ from typing import Any, Callable, Dict, List, Union
 
 import numpy as np
 import torch
-from sutils.exp.config import Config
-from sutils.exp.logger import Logger
 
 from src.gvae import GVAE
 from src.tan import TAN, patch, train_of_tan
 from utils.benchmark import de_fitness_function
+from utils.config import Config
 from utils.data_utils import DataUtils
+from utils.logger import Logger
 
 
 class TAMS:
@@ -20,7 +20,7 @@ class TAMS:
         self.tan.to(self._cfg.DEVICE)
         self.data_util = DataUtils()
         self.gvae = GVAE()
-        self.gvae.load_state_dict(torch.load("data/gvae.pth", map_location="cpu"))
+        self.gvae.load_state_dict(torch.load("assets/gvae.pth", map_location="cpu"))
         self.best_robot = None
         self.best_fitness = -np.inf
         self.initilize_tan()
@@ -70,8 +70,6 @@ class TAMS:
     def initilize_tan(self) -> None:
         self.tan = TAN()
         self.tan.to(self._cfg.DEVICE)
-        self.max_val = self._cfg.TAMS.TAN.MAX_VAL
-        self.min_val = self._cfg.TAMS.TAN.MIN_VAL
 
     def _process_terrain(self, terrain: np.ndarray, repeat_time: int) -> torch.Tensor:
         terrain = torch.as_tensor(terrain, dtype=torch.float32, device=self._cfg.DEVICE)
@@ -92,9 +90,6 @@ class TAMS:
         mu = torch.as_tensor(mu, dtype=torch.float32)
         terrain = torch.as_tensor(terrain, dtype=torch.float32)
         labels = torch.as_tensor(labels, dtype=torch.float32)
-        labels = (labels - self._cfg.TAMS.TAN.MIN_VAL) / (
-            self._cfg.TAMS.TAN.MAX_VAL - self._cfg.TAMS.TAN.MIN_VAL
-        )
         train_of_tan(self.tan, mu, terrain, labels)
 
     def optimize_population(

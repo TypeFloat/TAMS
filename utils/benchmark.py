@@ -5,13 +5,12 @@ from typing import Any, Optional, Type
 
 import numpy as np
 import torch
-from sutils.exp.config import Config
-from sutils.exp.logger import Logger
-from sutils.simulation.env.mujoco_env import MujocoEnv
 
-from src.env import SingleEnv
+from src.env import MujocoEnv, SingleEnv
 from src.mppi import MPPIController
 from src.robot import CodeNode
+from utils.config import Config
+from utils.logger import Logger
 from utils.terrain import (
     generate_barrier,
     generate_gap,

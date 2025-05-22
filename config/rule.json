@@ -1,0 +1,197 @@
+{
+    "INIT": {
+        "RULE_NUM": 1,
+        "RULE": [
+            [
+                "START",
+                "EOO"
+            ]
+        ]
+    },
+    "START": {
+        "RULE_NUM": 2,
+        "RULE": [
+            [
+                "BYO",
+                "EOO"
+            ],
+            [
+                "BZO",
+                "EOO"
+            ]
+        ]
+    },
+    "B": {
+        "RULE_NUM": 25,
+        "RULE": [
+            [
+                "JOB",
+                "EOO"
+            ],
+            [
+                "JXB",
+                "EOO"
+            ],
+            [
+                "JYB",
+                "EOO"
+            ],
+            [
+                "JZB",
+                "EOO"
+            ],
+            [
+                "EOO",
+                "JOS"
+            ],
+            [
+                "EOO",
+                "JXS"
+            ],
+            [
+                "EOO",
+                "JYS"
+            ],
+            [
+                "EOO",
+                "JZS"
+            ],
+            [
+                "JOB",
+                "JOS"
+            ],
+            [
+                "JXB",
+                "JOS"
+            ],
+            [
+                "JYB",
+                "JOS"
+            ],
+            [
+                "JZB",
+                "JOS"
+            ],
+            [
+                "JOB",
+                "JXS"
+            ],
+            [
+                "JXB",
+                "JXS"
+            ],
+            [
+                "JYB",
+                "JXS"
+            ],
+            [
+                "JZB",
+                "JXS"
+            ],
+            [
+                "JOB",
+                "JYS"
+            ],
+            [
+                "JXB",
+                "JYS"
+            ],
+            [
+                "JYB",
+                "JYS"
+            ],
+            [
+                "JZB",
+                "JYS"
+            ],
+            [
+                "JOB",
+                "JZS"
+            ],
+            [
+                "JXB",
+                "JZS"
+            ],
+            [
+                "JYB",
+                "JZS"
+            ],
+            [
+                "JZB",
+                "JZS"
+            ],
+            [
+                "EOO",
+                "EOO"
+            ]
+        ]
+    },
+    "S": {
+        "RULE_NUM": 5,
+        "RULE": [
+            [
+                "JOS",
+                "EOO"
+            ],
+            [
+                "JXS",
+                "EOO"
+            ],
+            [
+                "JYS",
+                "EOO"
+            ],
+            [
+                "JZS",
+                "EOO"
+            ],
+            [
+                "EOO",
+                "EOO"
+            ]
+        ]
+    },
+    "JB": {
+        "RULE_NUM": 1,
+        "RULE": [
+            [
+                "BOO",
+                "EOO"
+            ]
+        ]
+    },
+    "JS": {
+        "RULE_NUM": 5,
+        "RULE": [
+            [
+                "SXO",
+                "EOO"
+            ],
+            [
+                "SYO",
+                "EOO"
+            ],
+            [
+                "SyO",
+                "EOO"
+            ],
+            [
+                "SZO",
+                "EOO"
+            ],
+            [
+                "SzO",
+                "EOO"
+            ]
+        ]
+    },
+    "EOO": {
+        "RULE_NUM": 1,
+        "RULE": [
+            [
+                "EOO",
+                "EOO"
+            ]
+        ]
+    }
+}

@@ -1,12 +1,13 @@
-from typing import List, Optional, Union
+from copy import deepcopy
+from typing import List, Optional, Tuple, Union
 
 import gym
 import numpy as np
 import torch
 from gym.spaces import Box
-from sutils.simulation.env.mujoco_env import MujocoEnv
 
 from src.robot import CodeNode, RobotGenerator
+from utils.env import MujocoEnv
 
 gym.logger.set_level(40)
 
@@ -16,7 +17,6 @@ class ObsType(dict):
         for key, value in self.items():
             self[key] = value.to(device)
         return self
-
 
 class BaseEnv(MujocoEnv):
 

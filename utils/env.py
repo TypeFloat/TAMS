@@ -1,11 +1,11 @@
 from copy import deepcopy
-from typing import Optional, Tuple
 
 import cv2
 import mujoco
 import numpy as np
 from gym import Env, spaces
 from mujoco.renderer import Renderer
+from typing_extensions import Tuple
 
 
 class MujocoEnv(Env):

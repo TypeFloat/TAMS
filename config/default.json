@@ -1,0 +1,99 @@
+{
+    "RANDOM_SEED": 0,
+    "SIM": {
+        "SEMI_LENGTH": 1,
+        "SEMI_WIDTH": 1,
+        "STANDARD_LENGTH": 50,
+        "BARRIER_SEMI_HEIGHT": 0.25,
+        "BOX_SEMI_LENGTH": 0.075,
+        "BOX_NUM": 150,
+        "CHANNEL_SIZE": 0.1,
+        "CHANNEL_LENGTH": 0.25,
+        "SEMI_HEIGHT": 0.5,
+        "N_STEP": 16,
+        "MAX_LINKS": 20,
+        "MIN_JOINTS": 1,
+        "CAMERA_HEIGHT": 256,
+        "CAMERA_WIDTH": 256,
+        "STAIR_FACTOR": 8,
+        "INCLINE_FACTOR": 15,
+        "X_HOLE_FACTOR": 2,
+        "Z_HOLE_FACTOR": 2,
+        "GAP_FACTOR": 4,
+        "BARRIER_FACTOR": 6
+    },
+    "GVAE": {
+        "USE_SAMPLE": false,
+        "NRULE": 40,
+        "MAX_LEN": 16,
+        "D_MU": 16,
+        "MODEL": "transformer",
+        "TRANSFORMER": {
+            "D_MODEL": 32,
+            "NUM_ENCODER_LAYERS": 1,
+            "NUM_DECODER_LAYERS": 1,
+            "NHEAD": 2,
+            "DIM_FEEDFORWARD": 64
+        },
+        "CG": {
+            "HSIZE": 501,
+            "GRU_HLAYERS": 3
+        }
+    },
+    "PPO": {
+        "STEPS_PER_EPOCH": 1280,
+        "EPOCHS": 500,
+        "GAMMA": 0.99,
+        "LAM": 0.97,
+        "CLIP_RATIO": 0.2,
+        "PI_LR": 0.001,
+        "VF_LR": 0.001,
+        "TRAIN_PI_ITERS": 80,
+        "TRAIN_V_ITERS": 80,
+        "TARGET_KL": 0.01,
+        "MAX_EP_LEN": 128,
+        "MINI_BATCH": 512
+    },
+    "DE_CONTROL": {
+        "POP_SIZE": 50,
+        "MAX_ITER": 100
+    },
+    "MPPI": {
+        "LAMBDA": 1.0,
+        "HORIZON": 16,
+        "N_SAMPLES": 16,
+        "DISCOUNT": 0.99,
+        "EPLEN": 128,
+        "REPEAT_TIME": 1
+    },
+    "TAN": {
+        "TRANSFORMER": {
+            "D_MODEL": 16,
+            "NHEAD": 2,
+            "DIM_FEEDFORWARD": 64,
+            "NUM_ENCODER_LAYERS": 1
+        },
+        "MAX_LEN": 25
+    },
+    "TAMS": {
+        "DE": {
+            "POP_SIZE": 32,
+            "MAX_ITER": 100
+        },
+        "TAN": {
+            "PRE_TRAIN": true,
+            "LR": 0.001,
+            "EPOCHS": 20
+        },
+        "USE_HISTORY": false
+    },
+    "TRAIN_OF_GVAE": {
+        "USE_MASK": false,
+        "USE_SIMILARITY": true,
+        "LR": 0.01,
+        "BATCH_SIZE": 2048,
+        "EPOCHS": 4000,
+        "NUMSIZE": 5000,
+        "REC_FACTOR": 1.0
+    }
+}

@@ -5,10 +5,11 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from sutils.exp.config import Config
-from sutils.exp.logger import Logger
-from sutils.network.transformer import PositionalEmbedding
+from utils.config import Config
+from utils.logger import Logger
+from utils.network import PositionalEmbedding
 from torch.utils.tensorboard.writer import SummaryWriter
+from typing_extensions import Tuple
 
 from utils.data_utils import DataUtils, get_data
 
@@ -55,7 +56,7 @@ class TransformerEncoder(TransformerModule):
         self._mu_fc = nn.Linear(config.GVAE.TRANSFORMER.D_MODEL, config.GVAE.D_MU)
         self._var_fc = nn.Linear(config.GVAE.TRANSFORMER.D_MODEL, config.GVAE.D_MU)
 
-    def forward(self, src: torch.Tensor) -> torch.Tensor:
+    def forward(self, src: torch.Tensor) -> Tuple[torch.Tensor]:
         src = self._rule_embedding(src)
         src = self._pos_embedding(src)
         out = self._transformer_encoder(src)
@@ -148,14 +149,14 @@ class GVAE(nn.Module):
 
     def forward(
         self, src: torch.Tensor, tgt: torch.Tensor
-    ) -> [torch.Tensor, torch.Tensor]:
+    ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         mu, log_var = self._encoder(src)
         memory = sample(mu, log_var)
         out = self._decoder(memory, tgt)
         # out = self._decoder(mu, tgt)
         return out, mu, log_var
 
-    def get_bound(self, src: torch.Tensor) -> None:
+    def get_bound(self, src: torch.Tensor) -> Tuple[np.ndarray, np.ndarray]:
         with torch.no_grad():
             src = src.to(torch.long)
             memory, _ = self._encoder(src)

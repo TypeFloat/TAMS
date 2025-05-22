@@ -4,11 +4,11 @@ import sys
 
 sys.path.append(os.getcwd())
 
-from sutils.exp.config import Config
-from sutils.exp.logger import Logger
 
 from src.tams import TAMS
 from utils.benchmark import Benchmark
+from utils.config import Config
+from utils.logger import Logger
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

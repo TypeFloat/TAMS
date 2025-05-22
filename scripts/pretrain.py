@@ -3,9 +3,9 @@ import sys
 
 sys.path.append(os.getcwd())
 
-from sutils.exp.config import Config
-from sutils.exp.logger import Logger
-from sutils.network import get_available_device
+from utils.config import Config
+from utils.logger import Logger
+from utils.network import get_available_device
 
 from src.gvae import train
 

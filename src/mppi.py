@@ -2,7 +2,8 @@ from typing import Any, Type
 
 import mujoco
 import numpy as np
-from sutils.simulation.env.mujoco_env import MujocoEnv
+
+from utils.env import MujocoEnv
 
 
 class MPPIController:
